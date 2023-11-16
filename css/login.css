@@ -1,0 +1,90 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Màu nền nhẹ cho trang */
+    display: flex;
+    justify-content: center; /* Căn giữa khối đăng nhập trên trang */
+    align-items: center;
+    height: 100vh; /* Chiều cao toàn màn hình */
+    margin: 0;
+}
+
+
+.login-container {
+    background-color: #ffffff;
+    padding: 40px 60px;
+    border-radius: 8px; /* Bo tròn góc */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ */
+    max-width: 400px;
+    
+}
+
+h2 {
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd; /* Đường viền nhẹ */
+    border-radius: 4px; /* Bo tròn góc */
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s; /* Hiệu ứng chuyển đổi khi focus và hover */
+}
+
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #999;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1); /* Nhẹ nhàng tập trung vào input */
+}
+
+button[type="submit"],
+button[type="button"] { /* Áp dụng chung cho cả hai loại nút */
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px; /* Khoảng cách giữa các nút */
+    transition: background-color 0.3s;
+}
+
+button[type="submit"] {
+    background-color: #5cb85c; /* Màu nền cho nút Đăng nhập */
+}
+
+button[type="submit"]:hover {
+    background-color: #4cae4c; /* Thay đổi màu khi hover */
+}
+
+button[type="button"] {
+    background-color: #337ab7; /* Màu nền cho nút Đăng kí */
+}
+
+button[type="button"]:hover {
+    background-color: #286090; /* Thay đổi màu khi hover */
+}
+
+#loginError {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Phản hồi cho các thiết bị có màn hình nhỏ */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 20px 30px; /* Giảm padding khi màn hình nhỏ */
+    }
+
+    h2 {
+        font-size: 20px; /* Giảm kích thước tiêu đề cho màn hình nhỏ */
+    }
+}

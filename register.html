@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng kí</title>
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Đăng kí</h2>
+        <form id="registerForm">
+            <input type="text" id="fullname" name="fullname" placeholder="Họ và Tên" required><br>
+            
+            <input type="tel" id="telephone" name="telephone" placeholder="Số điện thoại" required><br>
+
+            <input type="text" id="address" name="address" placeholder="Địa chỉ" required><br>
+           
+            <input type="text" id="username" name="username" placeholder="Tên đăng nhập" required><br>
+         
+            <input type="email" id="email" name="email" placeholder="Email" required><br>
+       
+            <input type="password" id="password" name="password" minlength="8" placeholder="Mật khẩu" required><br>
+ 
+            <input type="password" id="repassword" name="repassword" placeholder="Nhập lại mật khẩu" required><br>
+
+            <button type="submit">Đăng kí</button>
+            <button type="button" onclick="location.href='login.html'">Đăng nhập</button>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById('registerForm').onsubmit = function(event) {
+        event.preventDefault();
+
+        var password = document.getElementById('password').value;
+        var repassword = document.getElementById('repassword').value;
+        if (password !== repassword) {
+                alert('Nhập không giống');
+                return false;
+            }
+        if (password.length < 8) {
+            alert('Mật khẩu phải có ít nhất 8 ký tự.');
+            return false;
+        }
+
+        var username = document.getElementById('username').value;
+        var email = document.getElementById('email').value;
+        
+        // Lưu thông tin người dùng vào local storage
+        var users = JSON.parse(localStorage.getItem('users')) || [];
+        var user = {
+            username: username,
+            email: email,
+            password: password
+        };
+        users.push(user);
+        localStorage.setItem('users', JSON.stringify(users));
+
+        // Thông báo đăng ký thành công và chuyển đến trang đăng nhập
+        alert('Đăng ký thành công! Bạn sẽ được chuyển đến trang đăng nhập.');
+        window.location.href = 'login.html'; // Đường dẫn tới trang đăng nhập
+    };
+
+    </script>
+</body>
+</html>
